@@ -407,7 +407,7 @@ class NameScene(Scene):
         draw_vignette(surface)
 
         draw_glitch_text(surface, "CODE BREAKER", BASE_WIDTH // 2, 82, FONT_TITLE, GREEN, center=True)
-        draw_text(surface, "РЕГИСТРАЦИЯ ОПЕРАТОРА", BASE_WIDTH // 2, 180, FONT, CYAN, center=True)
+        draw_text(surface, "РЕГИСТРАЦИЯ ИГРОКА", BASE_WIDTH // 2, 180, FONT, CYAN, center=True)
 
         panel = pygame.Rect(330, 240, 540, 290)
         draw_panel(surface, panel)
@@ -469,7 +469,7 @@ class MenuScene(Scene):
         draw_vignette(surface)
 
         draw_glitch_text(surface, "CODE BREAKER", BASE_WIDTH // 2, 92, FONT_TITLE, GREEN, center=True)
-        draw_text(surface, "HACKER SIMULATOR / PYTHON + PYGAME", BASE_WIDTH // 2, 185, FONT, CYAN, center=True)
+        draw_text(surface, "HACKER SIMULATOR", BASE_WIDTH // 2, 185, FONT, CYAN, center=True)
 
         draw_panel(surface, pygame.Rect(370, 245, 460, 330))
 
@@ -477,7 +477,7 @@ class MenuScene(Scene):
             button.draw(surface, self.app.mouse_pos)
 
         player_name = DATA.get("player_name", "STUDENT")
-        draw_text_clamped(surface, f"Оператор: {player_name}", 20, 20, FONT_SMALL, GRAY, 430)
+        draw_text_clamped(surface, f"Игрок: {player_name}", 20, 20, FONT_SMALL, GRAY, 430)
         draw_text(surface, "ESC — выход из игры", 20, BASE_HEIGHT - 35, FONT_SMALL, GRAY)
         draw_text(surface, "F11 — полный экран", BASE_WIDTH - 230, BASE_HEIGHT - 35, FONT_SMALL, GRAY)
         draw_scanlines(surface)
@@ -578,7 +578,7 @@ class StatsScene(Scene):
         draw_panel(surface, panel_rect)
 
         draw_text(surface, "ДАННЫЕ ПРОФИЛЯ", 360, 185, FONT, CYAN)
-        draw_text_clamped(surface, f"Оператор: {DATA.get('player_name', 'STUDENT')}", 360, 235, FONT, WHITE, 480)
+        draw_text_clamped(surface, f"Игрок: {DATA.get('player_name', 'STUDENT')}", 360, 235, FONT, WHITE, 480)
         draw_text_clamped(surface, f"Лучший результат: {DATA['best_score']}", 360, 285, FONT, WHITE, 480)
         draw_text_clamped(surface, f"Пройдено миссий: {DATA['completed_missions']}", 360, 335, FONT, WHITE, 480)
         draw_text_clamped(surface, f"Всего успешных взломов: {DATA['total_hacks']}", 360, 385, FONT, WHITE, 480)
@@ -788,7 +788,7 @@ class GameScene(Scene):
         hud_rect = pygame.Rect(800, 120, 350, 500)
         draw_panel(surface, hud_rect)
 
-        draw_text(surface, "ПАНЕЛЬ ОПЕРАТОРА", 825, 145, FONT, GREEN)
+        draw_text(surface, "ПАНЕЛЬ ИГОРКА", 825, 145, FONT, GREEN)
         time_left = int(self.get_time_left())
 
         draw_text_clamped(surface, f"Время: {time_left} сек", 825, 190, FONT_SMALL, WHITE, 290)
@@ -832,7 +832,7 @@ class GameScene(Scene):
         draw_text_clamped(surface, "режим: тренировочный симулятор кибербезопасности", 45, 88, FONT_SMALL, CYAN, 650)
 
         player_name = DATA.get("player_name", "STUDENT")
-        draw_text_clamped(surface, f"Оператор: {player_name}", 560, 45, FONT_SMALL, GRAY, 330)
+        draw_text_clamped(surface, f"Игрок: {player_name}", 560, 45, FONT_SMALL, GRAY, 330)
         self.menu_button.draw(surface, self.app.mouse_pos)
 
         self.draw_terminal(surface)
